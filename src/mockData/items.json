@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "text": "Clean bathroom",
+      "status": "incomplete",
+      "type": "task",
+      "important": false
+    },
+    {
+      "id": "2",
+      "text": "Make reservation for vacation",
+      "status": "complete",
+      "type": "task",
+      "important": true
+    },
+    {
+      "id": "3",
+      "text": "Book a haircut appointment",
+      "status": "incomplete",
+      "type": "task",
+      "important": false
+    },
+    {
+      "id": "4",
+      "text": "Take out trash",
+      "status": "futured",
+      "type": "note",
+      "important": false
+    },
+    {
+      "id": "5",
+      "text": "Dinner @ 6pm",
+      "status": "cancelled",
+      "type": "event",
+      "important": false
+    },
+    {
+      "id": "6",
+      "text": "Call mom",
+      "status": "migrated",
+      "type": "task",
+      "important": false
+    }
+  ]
+}
