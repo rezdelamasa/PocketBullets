@@ -11,68 +11,39 @@
 </script>
 
 <template>
-  <li v-if="item.status === 'incomplete'" class="item--complete">{{ item.text }}</li>
-  <li v-if="item.status === 'complete'" class="item--incomplete">{{ item.text }}</li>
+  <li v-if="item.status === 'incomplete' && !item.important" class="item--incomplete">{{ item.text }}</li>
+  <li v-if="item.status === 'incomplete' && item.important" class="item--important">{{ item.text }}</li>
+  <li v-if="item.status === 'complete'" class="item--complete">{{ item.text }}</li>
   <li v-if="item.status === 'migrated'" class="item--migrated">{{ item.text }}</li>
   <li v-if="item.status === 'cancelled'" class="item--cancelled">{{ item.text }}</li>
-  <li v-if="item.status === 'futured'" class="item--futured">{{ item.text }}</li>
 </template>
 
 <style scoped>
-  .read-the-docs {
-    color: #888;
-  }
+li {
+  text-align: left;
+}
 
-  #Daily {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+li::marker {
+  content: inherit;
+}
 
-  #Notes {
-    flex-grow: 1;
-  }
+li.item--important::marker {
+  content: "!   ";
+  font-weight: bold;
+}
 
-  #DailyNavigator {
-    display: flex;
-    justify-content: space-between;
-  }
+li.item--complete::marker {
+  content: "\2716   ";
+}
 
-  h2 {
-    text-align: left;
-  }
-
-  ul {
-    padding-left: 18px;
-    list-style-type: disc;
-  }
-
-  li {
-    text-align: left;
-  }
-
-  li::marker {
-    content: inherit;
-  }
-
-  li.item--incomplete {
-  }
-
-  li.item--complete::marker {
-    content: "\2716   ";
-  }
-
-  li.item--migrated::marker {
-    content: "\2192   ";
-  }
-
-  li.item--futured::marker {
-    content: "\2190   ";
-  }
+li.item--migrated::marker {
+  content: "\2192   ";
+}
 
   li.item--cancelled {
-    text-decoration: line-through;
+    text-decoration: line-through #999;
     position: relative;
+    color: #888888;
   }
 
   li.item--cancelled::marker {
@@ -89,8 +60,7 @@
     z-index: 0;
     left: -22px;
     color: transparent;
-    text-decoration-color: black!important;
-    text-decoration: line-through;
+    text-decoration: line-through #999;
     display: inline-block!important;
   }
 </style>

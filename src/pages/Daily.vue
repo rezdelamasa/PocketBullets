@@ -4,12 +4,9 @@ import type { Ref } from 'vue';
 import List from "../components/List.vue";
 import {useDrawerStore} from "../store/drawer";
 const drawerStore = useDrawerStore();
+import AddTask from "@components/TaskList/AddTask.vue";
 
 import { useItemsStore } from "../store/items";
-
-defineProps({
-})
-
 const itemsStore = useItemsStore();
 
 export interface Item {
@@ -41,11 +38,12 @@ onMounted(() => {
       <div class="daily-view__content">
         <h2 class="daily-view__title">{{ date }}</h2>
         <div class="daily-view__list">
-          <List :items="itemsStore.items"></List>
+          <List :items="itemsStore.sortedItems"></List>
+          <AddTask></AddTask>
         </div>
       </div>
       <div class="daily__paginator">
-        <button class="button--text button--left"><span>&lt; Apr 6</span></button>
+        <button class="button--text button--left"><span>&lt; Apr 5</span></button>
         <button class="button--text button--right"><span>Apr 7 &gt;</span></button>
       </div>
     </div>

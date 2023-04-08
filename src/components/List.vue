@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <ul id="NotesList">
+  <ul class="task-list">
     <template v-for="item in items">
       <ListItem :item="item"></ListItem>
     </template>
@@ -17,38 +17,15 @@ defineProps({
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.task-list {
+  margin-bottom: 0;
 }
 
-#Daily {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-#Notes {
-  flex-grow: 1;
-}
-
-#DailyNavigator {
-  display: flex;
-  justify-content: space-between;
-}
-
-h2 {
-  text-align: left;
-}
-
-ul {
+.task-list {
   padding-left: 18px;
   list-style-type: disc;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-li {
-  text-align: left;
 }
 </style>
