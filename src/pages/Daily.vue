@@ -4,6 +4,7 @@ import type { Ref } from 'vue';
 import List from "../components/List.vue";
 import {useDrawerStore} from "../store/drawer";
 const drawerStore = useDrawerStore();
+import AddTask from "@components/TaskList/AddTask.vue";
 
 import { useItemsStore } from "../store/items";
 const itemsStore = useItemsStore();
