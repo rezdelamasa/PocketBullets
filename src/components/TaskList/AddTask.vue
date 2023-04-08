@@ -12,7 +12,6 @@ const taskIsImportant: Ref<boolean> = ref(false);
 const taskInput = ref<HTMLInputElement | null>(null);
 
 function addTask(event: Event) {
-    const target = (<HTMLInputElement>event.target);
     console.log(inputValue.value);
 
     const newTask = {
