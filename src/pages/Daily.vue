@@ -6,10 +6,6 @@ import {useDrawerStore} from "../store/drawer";
 const drawerStore = useDrawerStore();
 
 import { useItemsStore } from "../store/items";
-
-defineProps({
-})
-
 const itemsStore = useItemsStore();
 
 export interface Item {
