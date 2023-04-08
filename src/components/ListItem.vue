@@ -18,37 +18,9 @@
 </template>
 
 <style scoped>
-  .read-the-docs {
-    color: #888;
-  }
-
-  #Daily {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  #Notes {
-    flex-grow: 1;
-  }
-
-  #DailyNavigator {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  h2 {
-    text-align: left;
-  }
-
-  ul {
-    padding-left: 18px;
-    list-style-type: disc;
-  }
-
-  li {
-    text-align: left;
-  }
+li {
+  text-align: left;
+}
 
   li::marker {
     content: inherit;
@@ -61,13 +33,9 @@
     content: "\2716   ";
   }
 
-  li.item--migrated::marker {
-    content: "\2192   ";
-  }
-
-  li.item--futured::marker {
-    content: "\2190   ";
-  }
+li.item--migrated::marker {
+  content: "\2192   ";
+}
 
   li.item--cancelled {
     text-decoration: line-through #999;
