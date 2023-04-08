@@ -38,7 +38,8 @@ onMounted(() => {
       <div class="daily-view__content">
         <h2 class="daily-view__title">{{ date }}</h2>
         <div class="daily-view__list">
-          <List :items="itemsStore.items"></List>
+          <List :items="itemsStore.sortedItems"></List>
+          <AddTask></AddTask>
         </div>
       </div>
       <div class="daily__paginator">
