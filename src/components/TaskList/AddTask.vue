@@ -11,9 +11,7 @@ const selectedType: Ref<string> = ref("task");
 const taskIsImportant: Ref<boolean> = ref(false);
 const taskInput = ref<HTMLInputElement | null>(null);
 
-function addTask(event: Event) {
-    console.log(inputValue.value);
-
+function addTask() {
     const newTask = {
         id: uuid.v1(),
         text: inputValue.value,
@@ -23,9 +21,7 @@ function addTask(event: Event) {
     }
 
     itemsStore.items.push(newTask);
-
     inputValue.value = "";
-    console.log(newTask);
 }
 
 function toggleTaskImportance() {
@@ -53,7 +49,7 @@ async function showInput() {
         <Transition name="fade">
             <div class="task__input-wrapper" v-if="inputVisible">
                 <input
-                        @keyup.enter="addTask($event)"
+                        @keyup.enter="addTask"
                         @keyup.esc="hideInput"
                         v-model="inputValue"
                         autofocus
