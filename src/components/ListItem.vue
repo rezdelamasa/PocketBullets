@@ -11,8 +11,9 @@
 </script>
 
 <template>
-  <li v-if="item.status === 'incomplete'" class="item--complete">{{ item.text }}</li>
-  <li v-if="item.status === 'complete'" class="item--incomplete">{{ item.text }}</li>
+  <li v-if="item.status === 'incomplete' && !item.important" class="item--incomplete">{{ item.text }}</li>
+  <li v-if="item.status === 'incomplete' && item.important" class="item--important">{{ item.text }}</li>
+  <li v-if="item.status === 'complete'" class="item--complete">{{ item.text }}</li>
   <li v-if="item.status === 'migrated'" class="item--migrated">{{ item.text }}</li>
   <li v-if="item.status === 'cancelled'" class="item--cancelled">{{ item.text }}</li>
 </template>
@@ -22,16 +23,18 @@ li {
   text-align: left;
 }
 
-  li::marker {
-    content: inherit;
-  }
+li::marker {
+  content: inherit;
+}
 
-  li.item--incomplete {
-  }
+li.item--important::marker {
+  content: "!   ";
+  font-weight: bold;
+}
 
-  li.item--complete::marker {
-    content: "\2716   ";
-  }
+li.item--complete::marker {
+  content: "\2716   ";
+}
 
 li.item--migrated::marker {
   content: "\2192   ";
