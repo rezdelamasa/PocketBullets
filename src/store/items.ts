@@ -9,7 +9,7 @@ export const useItemsStore = defineStore('items', () => {
     let items: Ref<Item[]> = ref([]);
 
     function fetchItems() {
-        const statusSortOrder = ["incomplete", "complete", "migrated", "futured", "cancelled"];
+        const statusSortOrder = ["incomplete", "complete", "migrated", "cancelled"];
         function compareStatuses( a: Item, b: Item ) {
             const aIndex = statusSortOrder.indexOf(a.status);
             const bIndex = statusSortOrder.indexOf(b.status);

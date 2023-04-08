@@ -45,7 +45,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="daily__paginator">
-        <button class="button--text button--left"><span>&lt; Apr 6</span></button>
+        <button class="button--text button--left"><span>&lt; Apr 5</span></button>
         <button class="button--text button--right"><span>Apr 7 &gt;</span></button>
       </div>
     </div>
