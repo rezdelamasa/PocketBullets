@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "click-outside-vue3": "^4.0.1",
     "install": "^0.13.0",
     "pinia": "^2.0.34",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
+    "vue-uuid": "^3.0.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
