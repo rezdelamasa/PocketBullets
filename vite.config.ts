@@ -9,6 +9,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@data': path.resolve(__dirname, './src/mockData'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@icons': path.resolve(__dirname, './src/components/icons'),
     },
   },
   plugins: [vue()],
