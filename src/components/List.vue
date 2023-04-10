@@ -22,7 +22,7 @@ defineProps({
 }
 
 .task-list {
-  padding-left: 18px;
+  padding: 0;
   list-style-type: disc;
   display: flex;
   flex-direction: column;
