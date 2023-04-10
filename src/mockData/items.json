@@ -9,8 +9,8 @@
     },
     {
       "id": "2",
-      "text": "Make reservation for vacation",
-      "status": "complete",
+      "text": "Book flight and hotel reservation for day before cruise (Apr 28). Book flight and hotel reservation for day before cruise (Apr 28). Book flight and hotel reservation for day before cruise (Apr 28)",
+      "status": "incomplete",
       "type": "task",
       "important": true
     },
@@ -23,9 +23,16 @@
     },
     {
       "id": "4",
-      "text": "Take out trash",
-      "status": "migrated",
+      "text": "Talked about a cousin vacation to Colorado",
+      "status": "incomplete",
       "type": "note",
+      "important": false
+    },
+    {
+      "id": "8",
+      "text": "Lunch @ 1pm",
+      "status": "complete",
+      "type": "event",
       "important": false
     },
     {
@@ -36,9 +43,16 @@
       "important": false
     },
     {
+      "id": "7",
+      "text": "Movie @ 9pm",
+      "status": "incomplete",
+      "type": "event",
+      "important": false
+    },
+    {
       "id": "6",
       "text": "Call mom",
-      "status": "migrated",
+      "status": "complete",
       "type": "task",
       "important": false
     }
