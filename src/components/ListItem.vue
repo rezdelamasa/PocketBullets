@@ -1,66 +1,29 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { Item } from "../pages/Daily.vue";
+import {ref} from 'vue'
+import {Item} from "../pages/Daily.vue";
+import Task from "@components/TaskList/Task.vue";
+import Event from "@components/TaskList/Event.vue";
+import Note from "@components/TaskList/Note.vue";
 
-  interface Props {
-    item: Item
-  }
+interface Props {
+  item: Item
+}
 
-  const props = defineProps<Props>();
+const props = defineProps<Props>();
 
 </script>
 
 <template>
-  <li v-if="item.status === 'incomplete' && !item.important" class="item--incomplete">{{ item.text }}</li>
-  <li v-if="item.status === 'incomplete' && item.important" class="item--important">{{ item.text }}</li>
-  <li v-if="item.status === 'complete'" class="item--complete">{{ item.text }}</li>
-  <li v-if="item.status === 'migrated'" class="item--migrated">{{ item.text }}</li>
-  <li v-if="item.status === 'cancelled'" class="item--cancelled">{{ item.text }}</li>
+  <div class="item-wrapper">
+    <Task v-if="item.type === 'task'" :item="item"/>
+    <Event v-if="item.type === 'event'" :item="item"/>
+    <Note v-if="item.type === 'note'" :item="item"/>
+  </div>
 </template>
 
 <style scoped>
-li {
-  text-align: left;
+.item-wrapper {
+  margin-bottom: 0.25rem;
+  width: 100%;
 }
-
-li::marker {
-  content: inherit;
-}
-
-li.item--important::marker {
-  content: "!   ";
-  font-weight: bold;
-}
-
-li.item--complete::marker {
-  content: "\2716   ";
-}
-
-li.item--migrated::marker {
-  content: "\2192   ";
-}
-
-  li.item--cancelled {
-    text-decoration: line-through #999;
-    position: relative;
-    color: #888888;
-  }
-
-  li.item--cancelled::marker {
-    content: "";
-    text-decoration: line-through;
-    display: inline-block!important;
-    overflow: hidden;
-    height: 16px;
-  }
-
-  li.item--cancelled::before {
-    content: "what";
-    position: absolute;
-    z-index: 0;
-    left: -22px;
-    color: transparent;
-    text-decoration: line-through #999;
-    display: inline-block!important;
-  }
 </style>

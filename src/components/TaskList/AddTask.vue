@@ -93,8 +93,8 @@ async function showInput() {
 <style scoped>
 .task--add {
     list-style-type: none;
-    max-width: max-content;
-    min-width: 400px;
+    max-width: 80vw;
+    min-width: min-content;
     width: 100%;
     margin: 0.5rem 0;
     height: 36px;
