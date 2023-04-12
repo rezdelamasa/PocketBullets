@@ -32,6 +32,18 @@ export const useItemsStore = defineStore('items', () => {
         return data.sort(compareImportance).sort(compareStatuses);
     }
 
+    function toggleItemCompletion(paramItem: Item) {
+        console.log(paramItem.status);
+        let newStatus: String;
+        if (paramItem.status === 'complete') {
+            newStatus = 'incomplete';
+        } else if (paramItem.status === 'incomplete') {
+            newStatus = 'complete';
+        }
+        items.value = items.value.map(item =>
+            (item.id === paramItem.id) ? {...item, status: newStatus} : item);
+
+    }
 
     function fetchItems() {
         items.value = itemSorter(data.data);
@@ -41,5 +53,5 @@ export const useItemsStore = defineStore('items', () => {
         return itemSorter(items.value)
     })
 
-    return {items, fetchItems, sortedItems};
+    return {items, fetchItems, sortedItems, toggleItemCompletion};
 })
