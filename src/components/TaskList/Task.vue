@@ -1,32 +1,66 @@
 <script setup lang="ts">
-import {ref} from 'vue'
-import {Item} from "../pages/Daily.vue";
+import {ComputedRef, Ref, ref, computed} from 'vue'
+import {Item} from "@/pages/Daily.vue";
 import UncheckedBox from "@icons/UncheckedBox.vue";
 import CheckedBox from "@icons/CheckedBox.vue";
 import Star from "@icons/Star.vue";
 import StarFilled from "@icons/StarFilled.vue";
+import {useItemsStore} from "@/store/items";
+
+const itemsStore = useItemsStore();
 
 interface Props {
-  item: Item
+  item: Item,
 }
 
 const props = defineProps<Props>();
+
+const switching: Ref<boolean> = ref(false);
+const hovering: Ref<boolean> = ref(false);
+
+function handleCheckboxClick() {
+  switching.value = true;
+
+  setTimeout(() => {
+    itemsStore.toggleItemCompletion(props.item);
+    switching.value = false;
+  }, 300)
+
+}
+
+const showUncheckedBox: ComputedRef<boolean> = computed(() => {
+  if (props.item.status === 'incomplete') {
+    return !hovering.value && !switching.value;
+  }
+  if (props.item.status === 'complete') {
+    return hovering.value || switching.value;
+  }
+  return false;
+})
+
+const computedStatusClass: ComputedRef<string> = computed(() => {
+  return "item--" + props.item.status;
+})
+
 
 </script>
 
 <template>
   <li
       class="list__item"
-      :class="{
-      'item--incomplete' : item.status === 'incomplete',
-      'item--complete' : item.status === 'complete',
-      'item--migrated' : item.status === 'migrated',
-      'item--cancelled' : item.status === 'cancelled',
-    }"
+      :class="[
+        computedStatusClass,
+        {
+          'item--switching' : switching
+        }
+      ]"
   >
     <div class="list__item__bullet">
-      <UncheckedBox v-if="item.status === 'incomplete'" :color="'#333'"/>
-      <CheckedBox v-if="item.status === 'complete'" :color="'#888'"/>
+      <button class="bullet__button" @click="handleCheckboxClick" @mouseover="hovering = true"
+              @mouseleave="hovering = false">
+        <UncheckedBox v-if="showUncheckedBox"/>
+        <CheckedBox v-else/>
+      </button>
     </div>
     <div class="list__item__content">
       <p class="my-0">{{ item.text }}</p>
@@ -43,6 +77,8 @@ const props = defineProps<Props>();
 <style scoped>
 .item--complete {
   color: #888;
+  transition: none;
+  text-decoration: line-through;
 }
 
 .item--complete :deep(svg),
@@ -55,15 +91,20 @@ const props = defineProps<Props>();
   fill: #333;
 }
 
-li {
-  text-align: left;
-}
-
-li::marker {
-  content: inherit;
+.bullet__button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .list__item {
+  opacity: 1;
+  text-align: left;
   list-style: none;
   display: flex;
   align-items: flex-start;
@@ -71,11 +112,16 @@ li::marker {
   width: 100%;
 }
 
+.list__item.item--switching {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
 .list__item__bullet {
-  font-size: 1.5rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  min-width: 1.5rem;
+  font-size: 1.25rem;
+  height: 100%;
+  width: 1.25rem;
+  min-width: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,7 +129,7 @@ li::marker {
 }
 
 .list__item__bullet > span {
-  height: 1.5rem;
+  height: 1.25rem;
   width: max-content;
   display: flex;
   flex-direction: column;
