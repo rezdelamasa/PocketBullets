@@ -18,12 +18,25 @@ const props = defineProps<Props>();
 const switching: Ref<boolean> = ref(false);
 const hovering: Ref<boolean> = ref(false);
 
+const importantSwitching: Ref<boolean> = ref(false);
+const importantHovering: Ref<boolean> = ref(false);
+
 function handleCheckboxClick() {
   switching.value = true;
 
   setTimeout(() => {
     itemsStore.toggleItemCompletion(props.item);
     switching.value = false;
+  }, 300)
+
+}
+
+function handleImportantClick() {
+  importantSwitching.value = true;
+
+  setTimeout(() => {
+    itemsStore.toggleItemImportance(props.item);
+    importantSwitching.value = false;
   }, 300)
 
 }
@@ -51,7 +64,8 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
       :class="[
         computedStatusClass,
         {
-          'item--switching' : switching
+          'item--switching' : switching,
+          'item--important-switching' : importantSwitching
         }
       ]"
   >
@@ -68,8 +82,12 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
       <p v-if="item.status === 'cancelled'" class="my-0 list__item__subtext">Cancelled</p>
     </div>
     <div class="list__item__signifier">
-      <StarFilled v-if="item.important"/>
-      <Star v-else/>
+      <button class="signifier__button" @click="handleImportantClick" @mouseover="importantHovering = true"
+              @mouseleave="importantHovering = false">
+        <Star v-if="!item.important && !importantHovering"/>
+        <StarFilled v-else/>
+
+      </button>
     </div>
   </li>
 </template>
@@ -91,7 +109,8 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
   fill: #333;
 }
 
-.bullet__button {
+.bullet__button,
+.signifier__button {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -100,6 +119,10 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.signifier__button:hover :deep(svg) {
+  fill: #999;
 }
 
 .list__item {
@@ -112,7 +135,8 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
   width: 100%;
 }
 
-.list__item.item--switching {
+.list__item.item--switching,
+.list__item.item--important-switching {
   opacity: 0;
   transition: all 0.3s;
 }

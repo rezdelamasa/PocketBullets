@@ -45,6 +45,12 @@ export const useItemsStore = defineStore('items', () => {
 
     }
 
+    function toggleItemImportance(paramItem: Item) {
+        items.value = items.value.map(item =>
+            (item.id === paramItem.id) ? {...item, important: !paramItem.important} : item);
+
+    }
+
     function fetchItems() {
         items.value = itemSorter(data.data);
     }
@@ -53,5 +59,5 @@ export const useItemsStore = defineStore('items', () => {
         return itemSorter(items.value)
     })
 
-    return {items, fetchItems, sortedItems, toggleItemCompletion};
+    return {items, fetchItems, sortedItems, toggleItemCompletion, toggleItemImportance};
 })
