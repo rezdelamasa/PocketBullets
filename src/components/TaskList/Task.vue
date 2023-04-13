@@ -78,6 +78,7 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
 .item--complete {
   color: #888;
   transition: none;
+  text-decoration: line-through;
 }
 
 .item--complete :deep(svg),
