@@ -45,6 +45,28 @@ export const useItemsStore = defineStore('items', () => {
 
     }
 
+    function getDayItems(paramDate: Date) {
+        // console.log(day);
+        // console.log(day.getDate());
+        // items.value.forEach(item => {
+        //     const itemDate = new Date(item.date);
+        //     console.log("item date: ",itemDate.toDateString());
+        //     console.log("param date: ", paramDate.toDateString());
+        // })
+
+
+        function sameDate(item) {
+            const itemDateString = new Date(item.date).toDateString();
+            const paramDateString = paramDate.toDateString();
+            console.log("item date: ", itemDateString);
+            console.log("paramDateString: ", paramDateString);
+            return itemDateString === paramDateString;
+        }
+
+        const dayItems = items.value.filter(sameDate);
+        return itemSorter(dayItems);
+    }
+
     function toggleItemImportance(paramItem: Item) {
         items.value = items.value.map(item =>
             (item.id === paramItem.id) ? {...item, important: !paramItem.important} : item);
@@ -69,5 +91,5 @@ export const useItemsStore = defineStore('items', () => {
         return itemSorter(items.value)
     })
 
-    return {items, fetchItems, sortedItems, toggleItemCompletion, toggleItemImportance, updateItemText};
+    return {items, fetchItems, sortedItems, toggleItemCompletion, toggleItemImportance, updateItemText, getDayItems};
 })
