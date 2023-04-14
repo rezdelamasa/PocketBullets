@@ -3,8 +3,8 @@ import {ref, computed, ComputedRef} from 'vue'
 // @ts-ignore
 import data from '@data/items.json';
 // @ts-ignore
-import { Item } from "@/components/Daily.vue";
-import type { Ref } from 'vue';
+import {Item} from '../types';
+import type {Ref} from 'vue';
 export const useItemsStore = defineStore('items', () => {
     let items: Ref<Item[]> = ref([]);
     const statusSortOrder = ["incomplete", "complete", "migrated", "cancelled"];
@@ -34,7 +34,7 @@ export const useItemsStore = defineStore('items', () => {
 
     function toggleItemCompletion(paramItem: Item) {
         console.log(paramItem.status);
-        let newStatus: String;
+        let newStatus: string;
         if (paramItem.status === 'complete') {
             newStatus = 'incomplete';
         } else if (paramItem.status === 'incomplete') {

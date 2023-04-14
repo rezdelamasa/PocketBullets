@@ -5,20 +5,12 @@ import List from "../components/List.vue";
 import {useDrawerStore} from "../store/drawer";
 const drawerStore = useDrawerStore();
 import AddTask from "@components/TaskList/AddTask.vue";
-
 import { useItemsStore } from "../store/items";
 const itemsStore = useItemsStore();
 import {useRoute} from 'vue-router'
+import {Item} from '../types';
 
 const route = useRoute();
-
-export interface Item {
-    id: string;
-    text: string,
-    status: string,
-    type: string,
-    important: boolean
-}
 
 function openDrawer() {
     drawerStore.drawer = true;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ComputedRef, Ref, ref, computed, nextTick} from 'vue'
-import {Item} from "@/pages/Daily.vue";
+import {Item} from "../../types"
 import UncheckedBox from "@icons/UncheckedBox.vue";
 import CheckedBox from "@icons/CheckedBox.vue";
 import Star from "@icons/Star.vue";
@@ -42,9 +42,9 @@ function handleInputSubmit(event: Event) {
             return;
         }
     }
-    const newText = target.textContent;
-    const newItem = props.item;
-    newItem.text = newText;
+    const newText = target?.textContent;
+    const newItem: Item = props.item;
+    newItem.text = newText as string;
     itemsStore.updateItemText(newItem);
     if (TaskText.value) {
         TaskText.value?.blur();
