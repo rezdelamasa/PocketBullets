@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
-import type { Ref } from 'vue';
+import type {Ref} from 'vue';
 import List from "../components/List.vue";
 import {useDrawerStore} from "../store/drawer";
 const drawerStore = useDrawerStore();
@@ -13,15 +13,15 @@ import {useRoute} from 'vue-router'
 const route = useRoute();
 
 export interface Item {
-  id: string;
-  text: string,
-  status: string,
-  type: string,
-  important: boolean
+    id: string;
+    text: string,
+    status: string,
+    type: string,
+    important: boolean
 }
 
 function openDrawer() {
-  drawerStore.drawer = true;
+    drawerStore.drawer = true;
 }
 
 const date: Ref<Date> = ref(new Date);
