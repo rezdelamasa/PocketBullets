@@ -51,6 +51,16 @@ export const useItemsStore = defineStore('items', () => {
 
     }
 
+    // Takes an input item
+    // Maps through the array
+    // If parameter item id matches current item id, it will update the item using spread
+    // Else just return the item back
+    function updateItemText(paramItem: Item) {
+        items.value = items.value.map(item =>
+            (item.id === paramItem.id) ? {...item, text: paramItem.text} : item);
+
+    }
+
     function fetchItems() {
         items.value = itemSorter(data.data);
     }
@@ -59,5 +69,5 @@ export const useItemsStore = defineStore('items', () => {
         return itemSorter(items.value)
     })
 
-    return {items, fetchItems, sortedItems, toggleItemCompletion, toggleItemImportance};
+    return {items, fetchItems, sortedItems, toggleItemCompletion, toggleItemImportance, updateItemText};
 })
