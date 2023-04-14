@@ -10,7 +10,7 @@ import {useItemsStore} from "@/store/items";
 const itemsStore = useItemsStore();
 
 interface Props {
-  item: Item,
+    item: Item,
 }
 
 const props = defineProps<Props>();
@@ -25,12 +25,12 @@ const editing: Ref<boolean> = ref(false);
 const TaskText = ref<HTMLParagraphElement | null>(null);
 
 function handleCheckboxClick() {
-  switching.value = true;
+    switching.value = true;
 
-  setTimeout(() => {
-    itemsStore.toggleItemCompletion(props.item);
-    switching.value = false;
-  }, 300)
+    setTimeout(() => {
+        itemsStore.toggleItemCompletion(props.item);
+        switching.value = false;
+    }, 300)
 
 }
 
