@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ComputedRef, Ref, ref, computed} from 'vue'
+import {ComputedRef, Ref, ref, computed, nextTick} from 'vue'
 import {Item} from "@/pages/Daily.vue";
 import UncheckedBox from "@icons/UncheckedBox.vue";
 import CheckedBox from "@icons/CheckedBox.vue";
