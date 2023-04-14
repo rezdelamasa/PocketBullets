@@ -36,11 +36,11 @@ onMounted(() => {
         <button @click="openDrawer()" class="daily-view__header__button button--text button--left">&#9776;</button>
       </div>
       <div class="daily-view__content">
-        <h2 class="daily-view__title">{{ date }}</h2>
-        <div class="daily-view__list">
-          <List :items="itemsStore.sortedItems"></List>
-          <AddTask></AddTask>
-        </div>
+          <h2 class="daily-view__title">{{ date.toLocaleString('default', {month: 'short'}) }} {{ date.getDate() }}</h2>
+          <div class="daily-view__list">
+              <List :items="itemsStore.getDayItems( date )"></List>
+              <AddTask :day="date"></AddTask>
+          </div>
       </div>
       <div class="daily__paginator">
         <button class="button--text button--left"><span>&lt; Apr 5</span></button>
