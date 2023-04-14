@@ -46,20 +46,13 @@ export const useItemsStore = defineStore('items', () => {
     }
 
     function getDayItems(paramDate: Date) {
-        // console.log(day);
-        // console.log(day.getDate());
-        // items.value.forEach(item => {
-        //     const itemDate = new Date(item.date);
-        //     console.log("item date: ",itemDate.toDateString());
-        //     console.log("param date: ", paramDate.toDateString());
-        // })
-
-
         function sameDate(item: Item) {
             const itemDateString = new Date(item.date).toDateString();
             const paramDateString = paramDate.toDateString();
             return itemDateString === paramDateString;
         }
+
+        fetchItems();
 
         const dayItems = items.value.filter(sameDate);
         return itemSorter(dayItems);

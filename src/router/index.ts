@@ -9,7 +9,7 @@ const routes = [
         component: index,
     },
     {
-        path: '/daily/:id',
+        path: '/daily/:day/:month?/:year?',
         component: Daily
     },
     {
