@@ -8,6 +8,9 @@ import AddTask from "@components/TaskList/AddTask.vue";
 
 import { useItemsStore } from "../store/items";
 const itemsStore = useItemsStore();
+import {useRoute} from 'vue-router'
+
+const route = useRoute();
 
 export interface Item {
   id: string;
