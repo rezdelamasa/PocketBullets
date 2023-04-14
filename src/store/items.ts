@@ -3,8 +3,8 @@ import {ref, computed, ComputedRef} from 'vue'
 // @ts-ignore
 import data from '@data/items.json';
 // @ts-ignore
-import { Item } from "@/components/Daily.vue";
-import type { Ref } from 'vue';
+import {Item} from '../types';
+import type {Ref} from 'vue';
 export const useItemsStore = defineStore('items', () => {
     let items: Ref<Item[]> = ref([]);
     const statusSortOrder = ["incomplete", "complete", "migrated", "cancelled"];

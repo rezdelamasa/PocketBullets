@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
+import {Item} from '../types'
 import type {Ref} from 'vue';
 import List from "../components/List.vue";
 import {useDrawerStore} from "../store/drawer";
@@ -10,14 +11,6 @@ import AddTask from "@components/TaskList/AddTask.vue";
 import {useItemsStore} from "../store/items";
 
 const itemsStore = useItemsStore();
-
-export interface Item {
-    id: string;
-    text: string,
-    status: string,
-    type: string,
-    important: boolean
-}
 
 interface CalendarDay {
     date: number;

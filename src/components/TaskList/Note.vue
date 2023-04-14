@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Item} from "@/pages/Daily.vue";
+import {Item} from '../../types';
 import Dash from "@icons/Dash.vue";
 import Star from "@icons/Star.vue";
 import StarFilled from "@icons/StarFilled.vue";

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Item} from "@components/pages/Daily.vue";
+import {Item} from '../../types';
 import Calendar from "@icons/Calendar.vue";
 import CalendarCheck from "@icons/CalendarCheck.vue";
 import CalendarX from "@icons/CalendarX.vue";
