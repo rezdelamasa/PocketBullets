@@ -22,12 +22,12 @@
           <li
               class="drawer__navigation__list__item drawer__navigation__list__item--active"
           >
-            <p>Today</p>
+              <router-link to="/daily/1">Today</router-link>
           </li>
           <li
               class="drawer__navigation__list__item"
           >
-            <p>Weekly</p>
+              <router-link to="/weekly">Weekly</router-link>
           </li>
           <li
               class="drawer__navigation__list__item"
