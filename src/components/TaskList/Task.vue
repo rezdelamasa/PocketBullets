@@ -34,6 +34,23 @@ function handleCheckboxClick() {
 
 }
 
+function handleInputSubmit(event: Event) {
+    event.preventDefault();
+    const target = event.target as HTMLParagraphElement;
+    if (target.textContent) {
+        if (!target.textContent.length) {
+            return;
+        }
+    }
+    const newText = target.textContent;
+    const newItem = props.item;
+    newItem.text = newText;
+    itemsStore.updateItemText(newItem);
+    if (TaskText.value) {
+        TaskText.value?.blur();
+    }
+}
+
 function handleImportantClick() {
   importantSwitching.value = true;
 
