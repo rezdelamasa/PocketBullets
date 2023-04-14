@@ -108,7 +108,9 @@ const createCalendar = () => {
                 </div>
             </div>
             <div class="weekly-view__content">
-                <div class="weekly-view__day" v-for="day in createCalendar()">
+                <div class="weekly-view__day" v-for="day in createCalendar()"
+                     :class="{ 'weekly-view__day--current' : day.isToday }">
+                    <p class="weekly-view__subtitle" v-if="day.isToday">Today</p>
                     <h2 class="weekly-view__title">{{ day.name }}, {{ monthName() }} {{ day.date }}</h2>
                     <div class="weekly-view__list">
                         <List :items="itemsStore.getDayItems(day.meta)"></List>
@@ -131,7 +133,7 @@ const createCalendar = () => {
 .weekly-view__header {
     position: sticky;
     top: 0;
-    background: #fbf9f6;
+    background: white;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -143,9 +145,17 @@ const createCalendar = () => {
     justify-content: flex-start;
 }
 
+.weekly-view__subtitle {
+    font-weight: normal;
+    margin: 0;
+    text-align: left;
+}
+
 .calendar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 .month {
@@ -157,7 +167,7 @@ const createCalendar = () => {
 .calendar__day {
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
+    margin: 0 auto;
     padding: 0.5rem;
 }
 
@@ -188,6 +198,17 @@ const createCalendar = () => {
 
 .weekly-view__day {
     margin-bottom: 3rem;
+    /*background: #f3f3f3;*/
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.weekly-view__day--current {
+    /*border: 2px solid #666;*/
+    background-color: white;
+    border: 3px solid #333;
 }
 
 .weekly-view__header {
