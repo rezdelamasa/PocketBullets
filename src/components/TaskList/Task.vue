@@ -108,34 +108,53 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
     <li
       class="list__item"
       :class="[
-        computedStatusClass,
-        {
-          'item--switching' : switching,
-          'item--important-switching' : importantSwitching
-        }
-      ]"
-  >
-    <div class="list__item__bullet">
-      <button class="bullet__button" @click="handleCheckboxClick" @mouseover="hovering = true"
-              @mouseleave="hovering = false">
-        <UncheckedBox v-if="showUncheckedBox"/>
-        <CheckedBox v-else/>
-      </button>
-    </div>
-    <div class="list__item__content">
-      <p class="my-0">{{ item.text }}</p>
-      <p v-if="item.status === 'migrated'" class="my-0 list__item__subtext">Moved to Apr 30</p>
-      <p v-if="item.status === 'cancelled'" class="my-0 list__item__subtext">Cancelled</p>
-    </div>
-    <div class="list__item__signifier">
-      <button class="signifier__button" @click="handleImportantClick" @mouseover="importantHovering = true"
-              @mouseleave="importantHovering = false">
-        <Star v-if="!item.important && !importantHovering"/>
-        <StarFilled v-else/>
-
-      </button>
-    </div>
-  </li>
+      computedStatusClass,
+      {
+        'item--switching' : switching,
+        'item--important-switching' : importantSwitching
+      }
+    ]"
+    >
+        <div class="list__item__bullet">
+            <button
+              class="bullet__button"
+              @click="handleCheckboxClick"
+              @mouseover="hovering = true"
+              @mouseleave="hovering = false"
+            >
+                <UncheckedBox v-if="showUncheckedBox"/>
+                <CheckedBox v-else/>
+            </button>
+        </div>
+        <div class="list__item__content">
+            <div class="list__item__text">
+                <p
+                  class="my-0"
+                  :contenteditable="editing"
+                  @click="startEditing"
+                  @keydown.enter.prevent="handleInputSubmit($event)"
+                  @keydown.esc.prevent="cancelEdit"
+                  v-click-outside="cancelEdit"
+                  ref="TaskText"
+                >
+                    {{ item.text }}
+                </p>
+            </div>
+            <p v-if="item.status === 'migrated'" class="my-0 list__item__subtext">Moved to Apr 30</p>
+            <p v-if="item.status === 'cancelled'" class="my-0 list__item__subtext">Cancelled</p>
+        </div>
+        <div class="list__item__signifier">
+            <button
+              class="signifier__button"
+              @click="handleImportantClick"
+              @mouseover="importantHovering = true"
+              @mouseleave="importantHovering = false"
+            >
+                <Star v-if="!item.important && !importantHovering"/>
+                <StarFilled v-else/>
+            </button>
+        </div>
+    </li>
 </template>
 
 <style scoped>
