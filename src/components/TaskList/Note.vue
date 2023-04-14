@@ -18,10 +18,10 @@ const props = defineProps<Props>();
       <Dash :color="'#333'"/>
     </div>
     <div class="list__item__content">
-      <span>{{ item.text }}</span>
+        <span>{{ props.item.text }}</span>
     </div>
     <div class="list__item__signifier">
-      <StarFilled v-if="item.important" :color="'#333'"/>
+        <StarFilled v-if="props.item.important" :color="'#333'"/>
       <Star v-else :color="'#333'"/>
     </div>
   </li>
