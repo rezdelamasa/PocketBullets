@@ -55,7 +55,7 @@ export const useItemsStore = defineStore('items', () => {
         // })
 
 
-        function sameDate(item) {
+        function sameDate(item: Item) {
             const itemDateString = new Date(item.date).toDateString();
             const paramDateString = paramDate.toDateString();
             console.log("item date: ", itemDateString);
