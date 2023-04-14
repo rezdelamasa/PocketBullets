@@ -190,6 +190,10 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
     fill: #999;
 }
 
+.list__item__text > p {
+    padding: 2px 4px;
+}
+
 .list__item {
     opacity: 1;
     text-align: left;
