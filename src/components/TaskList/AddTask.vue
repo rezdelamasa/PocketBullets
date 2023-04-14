@@ -11,13 +11,18 @@ const selectedType: Ref<string> = ref("task");
 const taskIsImportant: Ref<boolean> = ref(false);
 const taskInput = ref<HTMLInputElement | null>(null);
 
+const props = defineProps({
+    day: Date
+})
+
 function addTask() {
     const newTask = {
         id: uuid.v1(),
         text: inputValue.value,
         status: "incomplete",
         type: selectedType.value,
-        important: taskIsImportant.value
+        important: taskIsImportant.value,
+        date: props.day
     }
 
     itemsStore.items.push(newTask);
@@ -52,7 +57,6 @@ async function showInput() {
                         @keyup.enter="addTask"
                         @keyup.esc="hideInput"
                         v-model="inputValue"
-                        autofocus
                         ref="taskInput"
                         class="task__input"
                         contenteditable="true"
