@@ -52,23 +52,23 @@ function handleInputSubmit(event: Event) {
 }
 
 function handleImportantClick() {
-  importantSwitching.value = true;
+    importantSwitching.value = true;
 
-  setTimeout(() => {
-    itemsStore.toggleItemImportance(props.item);
-    importantSwitching.value = false;
-  }, 300)
+    setTimeout(() => {
+        itemsStore.toggleItemImportance(props.item);
+        importantSwitching.value = false;
+    }, 300)
 
 }
 
 const showUncheckedBox: ComputedRef<boolean> = computed(() => {
-  if (props.item.status === 'incomplete') {
-    return !hovering.value && !switching.value;
-  }
-  if (props.item.status === 'complete') {
-    return hovering.value || switching.value;
-  }
-  return false;
+    if (props.item.status === 'incomplete') {
+        return !hovering.value && !switching.value;
+    }
+    if (props.item.status === 'complete') {
+        return hovering.value || switching.value;
+    }
+    return false;
 })
 
 const computedStatusClass: ComputedRef<string> = computed(() => {
@@ -79,7 +79,7 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
 </script>
 
 <template>
-  <li
+    <li
       class="list__item"
       :class="[
         computedStatusClass,
@@ -131,28 +131,28 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
 
 .bullet__button,
 .signifier__button {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background: transparent;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .signifier__button:hover :deep(svg) {
-  fill: #999;
+    fill: #999;
 }
 
 .list__item {
-  opacity: 1;
-  text-align: left;
-  list-style: none;
-  display: flex;
-  align-items: flex-start;
-  margin: 0.3rem 0;
-  width: 100%;
+    opacity: 1;
+    text-align: left;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    margin: 0.3rem 0;
+    width: 100%;
 }
 
 .list__item.item--switching,
@@ -162,14 +162,15 @@ const computedStatusClass: ComputedRef<string> = computed(() => {
 }
 
 .list__item__bullet {
-  font-size: 1.25rem;
-  height: 100%;
-  width: 1.25rem;
-  min-width: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+    font-size: 1.25rem;
+    height: 100%;
+    width: 1.25rem;
+    min-width: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3px;
 }
 
 .list__item__bullet > span {
