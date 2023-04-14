@@ -20,14 +20,16 @@
       <div class="drawer__navigation">
         <ul class="drawer__navigation__list">
           <li
-              class="drawer__navigation__list__item drawer__navigation__list__item--active"
+                  class="drawer__navigation__list__item drawer__navigation__list__item--active"
+                  @click="closeDrawer"
           >
               <router-link to="/daily/1">Today</router-link>
           </li>
           <li
-              class="drawer__navigation__list__item"
+                  class="drawer__navigation__list__item"
+                  @click="closeDrawer"
           >
-              <router-link to="/weekly">Weekly</router-link>
+              <router-link to="/weekly">This Week</router-link>
           </li>
           <li
               class="drawer__navigation__list__item"
