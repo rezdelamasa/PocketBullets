@@ -21,7 +21,7 @@ function openDrawer() {
   drawerStore.drawer = true;
 }
 
-const date: Ref<string> = ref("Apr 6");
+const date: Ref<Date> = ref(new Date);
 
 onMounted(() => {
   itemsStore.fetchItems();
