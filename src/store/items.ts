@@ -52,6 +52,8 @@ export const useItemsStore = defineStore('items', () => {
             return itemDateString === paramDateString;
         }
 
+        fetchItems();
+
         const dayItems = items.value.filter(sameDate);
         return itemSorter(dayItems);
     }
