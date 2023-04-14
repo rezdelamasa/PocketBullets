@@ -23,7 +23,7 @@
                   class="drawer__navigation__list__item drawer__navigation__list__item--active"
                   @click="closeDrawer"
           >
-              <router-link to="/daily/1">Today</router-link>
+              <router-link to="/daily/today">Today</router-link>
           </li>
           <li
                   class="drawer__navigation__list__item"
