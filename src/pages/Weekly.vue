@@ -36,7 +36,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
 
-const dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+const dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const monthName = () => {
     return monthNames[date.value.getMonth()];
