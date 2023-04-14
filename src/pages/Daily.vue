@@ -39,7 +39,10 @@ function setDate() {
 }
 
 onMounted(() => {
-  itemsStore.fetchItems();
+    setDate();
+    if (date.value) {
+        items.value = itemsStore.getDayItems(date.value)
+    }
 })
 
 </script>
