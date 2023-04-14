@@ -61,6 +61,32 @@ function handleImportantClick() {
 
 }
 
+async function startEditing() {
+    if (props.item.status !== 'incomplete' || editing.value) return;
+    editing.value = true;
+    await nextTick();
+    if (TaskText.value) {
+        setCaratToEnd(TaskText.value);
+        TaskText.value?.focus();
+    }
+}
+
+function setCaratToEnd(element: HTMLElement) {
+    // Place cursor at the end of a content editable div
+    if (element.getAttribute("contenteditable") === "true") {
+        element.focus();
+        window?.getSelection()?.selectAllChildren(element);
+        window?.getSelection()?.collapseToEnd();
+    }
+}
+
+function cancelEdit() {
+    editing.value = false;
+    if (TaskText.value) {
+        TaskText.value.textContent = props.item.text;
+    }
+}
+
 const showUncheckedBox: ComputedRef<boolean> = computed(() => {
     if (props.item.status === 'incomplete') {
         return !hovering.value && !switching.value;
