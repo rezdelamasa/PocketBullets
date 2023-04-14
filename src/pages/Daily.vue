@@ -24,7 +24,19 @@ function openDrawer() {
     drawerStore.drawer = true;
 }
 
-const date: Ref<Date> = ref(new Date);
+const items: Ref<Item[]> = ref([]);
+
+const date: Ref<Date | null> = ref(null);
+
+function setDate() {
+    const {day, month, year} = route.params;
+    if (day === "today") {
+        date.value = new Date;
+    } else {
+        const dateString = month + "/" + day + "/" + year;
+        date.value = new Date(dateString);
+    }
+}
 
 onMounted(() => {
   itemsStore.fetchItems();
