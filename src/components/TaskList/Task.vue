@@ -21,6 +21,9 @@ const hovering: Ref<boolean> = ref(false);
 const importantSwitching: Ref<boolean> = ref(false);
 const importantHovering: Ref<boolean> = ref(false);
 
+const editing: Ref<boolean> = ref(false);
+const TaskText = ref<HTMLParagraphElement | null>(null);
+
 function handleCheckboxClick() {
   switching.value = true;
 
