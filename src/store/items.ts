@@ -34,7 +34,7 @@ export const useItemsStore = defineStore('items', () => {
 
     function toggleItemCompletion(paramItem: Item) {
         console.log(paramItem.status);
-        let newStatus: String;
+        let newStatus: string;
         if (paramItem.status === 'complete') {
             newStatus = 'incomplete';
         } else if (paramItem.status === 'incomplete') {
