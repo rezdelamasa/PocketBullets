@@ -3,58 +3,138 @@
     {
       "id": "1",
       "text": "Clean bathroom",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/13/2023"
+    },
+    {
+      "id": "111",
+      "text": "Do Dishes",
+      "status": "complete",
+      "type": "task",
+      "important": true,
+      "date": "04/9/2023"
+    },
+    {
+      "id": "112",
+      "text": "Pick up poop",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/9/2023"
+    },
+    {
+      "id": "113",
+      "text": "Empty dishwasher",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/10/2023"
+    },
+    {
+      "id": "114",
+      "text": "Pick up basement",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/10/2023"
+    },
+    {
+      "id": "115",
+      "text": "Vacuum basement",
       "status": "incomplete",
       "type": "task",
-      "important": false
+      "important": false,
+      "date": "04/10/2023"
+    },
+    {
+      "id": "116",
+      "text": "Vacuum living room",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/11/2023"
+    },
+    {
+      "id": "117",
+      "text": "Mop kitchen",
+      "status": "complete",
+      "type": "task",
+      "important": false,
+      "date": "04/11/2023"
+    },
+    {
+      "id": "118",
+      "text": "Watch Hawks vs Heat @ Tim's - 7:30pm",
+      "status": "complete",
+      "type": "event",
+      "important": false,
+      "date": "04/11/2023"
     },
     {
       "id": "2",
       "text": "Book flight and hotel reservation for day before cruise (Apr 28). Book flight and hotel reservation for day before cruise (Apr 28). Book flight and hotel reservation for day before cruise (Apr 28)",
       "status": "incomplete",
       "type": "task",
-      "important": true
+      "important": true,
+      "date": "04/13/2023"
     },
     {
       "id": "3",
       "text": "Book a haircut appointment",
       "status": "incomplete",
       "type": "task",
-      "important": false
+      "important": false,
+      "date": "04/13/2023"
     },
     {
       "id": "4",
       "text": "Talked about a cousin vacation to Colorado",
       "status": "incomplete",
       "type": "note",
-      "important": false
+      "important": false,
+      "date": "04/13/2023"
     },
     {
       "id": "8",
       "text": "Lunch @ 1pm",
       "status": "complete",
       "type": "event",
-      "important": false
+      "important": false,
+      "date": "04/13/2023"
     },
     {
       "id": "5",
       "text": "Dinner @ 6pm",
       "status": "cancelled",
       "type": "event",
-      "important": false
+      "important": false,
+      "date": "04/13/2023"
     },
     {
       "id": "7",
       "text": "Movie @ 9pm",
       "status": "incomplete",
       "type": "event",
-      "important": false
+      "important": false,
+      "date": "04/14/2023"
     },
     {
       "id": "6",
       "text": "Call mom",
+      "status": "incomplete",
+      "type": "task",
+      "important": false,
+      "date": "04/14/2023"
+    },
+    {
+      "id": "11",
+      "text": "Call dad",
       "status": "complete",
       "type": "task",
-      "important": false
+      "important": false,
+      "date": "04/12/2023"
     }
   ]
 }
