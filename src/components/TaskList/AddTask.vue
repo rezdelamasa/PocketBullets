@@ -57,7 +57,6 @@ async function showInput() {
                         @keyup.enter="addTask"
                         @keyup.esc="hideInput"
                         v-model="inputValue"
-                        autofocus
                         ref="taskInput"
                         class="task__input"
                         contenteditable="true"
